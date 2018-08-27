@@ -24,7 +24,7 @@ const configJson = (pages) => {
 	
 	
 		let transmission_group = [],
-			stringName, totalTargetLabel, discount_code_ddl_mapping;
+			stringName, totalTargetLabel;
 		let targets_json = helpers.initializeJSON(modules, app_id, tag_data);
 		let targetList = targets_json.targets[app_id];
 	
@@ -56,7 +56,7 @@ const configJson = (pages) => {
 	
 				Object.keys(currentInputs)
 					.filter(key => currentInputs[key] && key !== 'fields' && key !== 'click' && key !== 'match')
-					.map((key) => { //configures the inputs that don't need a transmission group and need a specific behaviour
+					.forEach((key) => { //configures the inputs that don't need a transmission group and need a specific behaviour
 						switch (key) {
 							case 'cloudiqBasketPayment':
 								// this.targetMapping(targetList[target_label], starter.payment_method, currentPage, null, key);
@@ -133,7 +133,7 @@ const configJson = (pages) => {
 
 				Object.keys(currentInputs)
 					.filter(key => key === 'fields' || key === 'click') // if blur or click -> need to create a copy of the target
-					.map((key) => {
+					.forEach((key) => {
 						key = (key === 'fields' ? 'blur' : 'click');
 						target_label = currentPage.name.replace(/\s/g, '_') + '_' + key;
 						currentPage.name.match(/checkout/i) ?

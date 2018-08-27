@@ -50,16 +50,17 @@ assignObjectIfAbsent = (invertedPageMatch, targetList, key) => {
 
 getPageMatchObject = (ConfirmationPage) => {
     let confirmationPageMatch = {};
-    ConfirmationPage ?
+    if(ConfirmationPage) {
         Object.keys(ConfirmationPage)
         .filter(key => isMatchField(key))
-        .map((key) => {
+        .forEach((key) => {
             if (Object.keys(confirmationPageMatch).indexOf(key) === -1) {
                 confirmationPageMatch[key] = [];
             }
             confirmationPageMatch[key].push(ConfirmationPage[key])
 
-        }) : null;
+        });
+    }
     return confirmationPageMatch;
 },
 
@@ -128,7 +129,7 @@ targetMapping= (target, map1, map2, map3, includeOnly) => {
     if (map1) Object.keys(map1).map((input) => {
         return target[input] = (typeof (input) === 'object' ? stringify_array(map1[input]) : map1[input]);
     });
-    if (map2) Object.keys(map2).map((input) => {
+    if (map2) Object.keys(map2).forEach((input) => {
         if (includeOnly) {
             if (input.match(includeOnly)) {
                 target[input] = map2[input];
