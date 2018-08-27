@@ -1,0 +1,25 @@
+body {
+  font: 14px "Century Gothic", Futura, sans-serif;
+  margin: 20px;
+  background-color: #29ab87;
+}
+
+label {
+  font-size: 16px;
+}
+
+.inputText {
+  size: 100%;
+}
+
+.hidden {
+  display: none;
+}
+
+.show {
+  display: inline-block;
+}
+
+.keysTable,.keysTable td{
+  border: solid 1px;
+}
