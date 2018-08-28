@@ -110,7 +110,7 @@ export const tag_data = {
     },
     7: {
         name: 'CheckoutRegister',
-        status: 'disabled',
+        status: 'enabled',
         inputs: {
             match: {
                 page_match: '/checkout/onepage',
