@@ -70,7 +70,7 @@ const configJson = (pages) => {
 								delete targetList[target_label].wait_on_load;
 								/*create the satellite target*/
 								stringName = 'order_number_capture';
-								helpers.concatTarget(ddl_mapping, targetList, stringName, starter.order_number_capture, currentInputs, pageMatch, 'cloudiq');
+								helpers.concatTarget(ddl_mapping, targetList, stringName, starter.order_number_capture, currentInputs, pageMatch, 'cloudiqOrderNumber');
 								break;
 							case 'basket_container':
 							case 'basket':

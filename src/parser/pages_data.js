@@ -159,12 +159,13 @@ export const tag_data = {
     },
     10: {
         name: 'ConfirmationPage',
-        status: 'disabled',
+        status: 'enabled',
         inputs: {
             match: {
                 page_match: '/checkout/onepage/success',
             },
-            cloudiqOrderNumber: 'p:nth-child(4)'
+            cloudiqOrderNumber: 'p:nth-child(4)',
+            cloudiqBasketTotal: '#checkout-review-load strong .price',
         }
     },
     11: {
