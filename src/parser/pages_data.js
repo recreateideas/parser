@@ -1,130 +1,135 @@
 export const tag_data = {
-    app_id: "2091",
-    base_campaign_id: "769",
-    email_campaign_id: "771",
-    baseAppId: "10124",
+    app_id: "10390",
+    base_campaign_id: "1906",
+    email_campaign_id: "1908",
     basket_timeout: "1800",
+    baseAppId: "10124",
     pixel_src: "//platform.cloud-iq.com.au/cartrecovery/",
-    domain: "www.ecostore.com.au/",
+    domain: "www.onitsukatiger.com",
     multi_bytes: "false"
 }, pages = {
     0: {
         name: 'Category',
-        status: 'enabled',
+        status: 'disabled',
         inputs: {
             match: {
-                element_match: '.products-grid.category-products-grid .button.btn-cart',
+                element_match: '[selector]',
             },
-            add_to_basket: '.products-grid.category-products-grid .button.btn-cart',
+            add_to_basket: '[selector]',
         }
     },
     1: {
         name: 'ProductPage',
-        status: 'enabled',
+        status: 'disabled',
         inputs: {
             match: {
-                element_match: '#product-addtocart-button',
+                element_match: '[selector]',
             },
-            add_to_basket: '#product-addtocart-button',
+            add_to_basket: '[selector]',
         }
     },
     2: {
         name: 'Login',
-        status: 'enabled',
+        status: 'disabled',
         inputs: {
-            click: '#send2',
+            click: '[selector]',
             match: {
-                page_match: '/account/login',
+                page_match: '/URL',
             },
             fields: {
-                cloudiqConsumerEmail: '#email'
+                cloudiqConsumerEmail: '[selector]'
             }
         }
     },
     3: {
         name: 'Register',
-        status: 'enabled',
+        status: 'disabled',
         inputs: {
-            click: '.account-create .button',
+            click: '[selector]',
             match: {
-                page_match: '/account/create',
+                page_match: '/URL',
             },
             fields: {
-                cloudiqConsumerEmail: '#email_address',
-                cloudiqConsumerFirstName: '#firstname',
-                cloudiqConsumerLastName: '#lastname',
+                cloudiqConsumerEmail: '[selector]',
+                cloudiqConsumerFirstName: '[selector]',
+                cloudiqConsumerLastName: '[selector]',
+                cloudiqConsumerZipCode: '[selector]',
+                cloudiqConsumerNumber: '[selector]',
+                cloudiqConsumerCountyState: '[selector]',
             }
         }
     },
     4: {
         name: 'BasketPage',
-        status: 'enabled',
+        status: 'disabled',
         inputs: {
             match: {
-                page_match: '/cart'
+                page_match: '/URL'
             },
             basket: {
-                container: '#shopping-cart-table tbody tr',
-                cloudiqProductImage: 'img',
-                cloudiqProductUrl: 'td:nth-child(2) a',
-                cloudiqProductName: 'td:nth-child(2) a',
-                cloudiqProductQuantity: '.input-text.qty',
-                cloudiqProductPrice: '.col-unit-price .price',
+                container: '[selector]',
+                cloudiqProductImage: '[selector]',
+                cloudiqProductUrl: '[selector]',
+                cloudiqProductName: '[selector]',
+                cloudiqProductQuantity: '[selector]',
+                cloudiqProductPrice: '[selector]',
+                cloudiqProductTotal: '[selector]',
             },
-            cloudiqBasketTotal: '#shopping-cart-totals-table strong .price',
-            cloudiqBasketSubTotal: '#shopping-cart-totals-table tbody tr .a-right:last-child .price',
-            cloudiqDiscountCode: '#coupon_code'
+            cloudiqBasketTotal: '[selector]',
+            cloudiqBasketSubTotal: '[selector]',
+            cloudiqDiscountCode: '[selector]'
         }
     },
     5: {
         name: 'MiniBasket',
-        status: 'enabled',
+        status: 'disabled',
         inputs: {
             match: {
-                element_match: '#cart-sidebar .product-image img',
-                page_exclude: '/cart,/Order-Confirmation'
+                element_match: '[selector]',
+                page_exclude: '/URL'
             },
             basket: {
-                container: '#cart-sidebar .item',
-                cloudiqProductImage: '.product-image img',
-                cloudiqProductUrl: '.product-name a',
-                cloudiqProductName: '.product-name a',
-                cloudiqProductQuantity: '.product-details strong',
-                cloudiqProductPrice: '.product-details .price',
+                container: '[selector]',
+                cloudiqProductImage: '[selector]',
+                cloudiqProductUrl: '[selector]',
+                cloudiqProductName: '[selector]',
+                cloudiqProductQuantity: '[selector]',
+                cloudiqProductPrice: '[selector]',
+                cloudiqProductTotal: '[selector]',
             },
-            cloudiqBasketTotal: '#mini-cart .subtotal .price',
+            cloudiqBasketTotal: '[selector]',
         }
     },
     6: {
         name: 'CheckoutLogin',
-        status: 'enabled',
+        status: 'disabled',
         inputs: {
             match: {
-                page_match: '/checkout/onepage',
-                element_match: '#login-email'
+                page_match: '/URL',
+                element_match: '[selector]'
             },
-            click: '#checkout-step-login .button',
+            click: '[selector]',
             fields: {
-                cloudiqConsumerEmail: '#login-email',
+                cloudiqConsumerEmail: '[selector]',
             }
         }
     },
     7: {
         name: 'CheckoutRegister',
-        status: 'enabled',
+        status: 'disabled',
         inputs: {
             match: {
-                page_match: '/checkout/onepage',
-                element_match: '#billing-new-address-form'
+                page_match: '/URL',
+                element_match: '[selector]'
             },
-            click: '#billing-new-address-form button',
+            click: '[selector]',
             fields: {
-                cloudiqConsumerEmail: '#billing:email',
-                cloudiqConsumerFirstName: '#billing:firstname',
-                cloudiqConsumerLastName: '#billing:lastname',
-                cloudiqConsumerZipCode: '#billing:postcode',
-                cloudiqConsumerNumber: '#billing:telephone',
-                cloudiqConsumerCountyState: '#billing:region',
+                cloudiqConsumerEmail: '[selector]',
+                cloudiqConsumerFirstName: '[selector]',
+                cloudiqConsumerLastName: '[selector]',
+                cloudiqConsumerZipCode: '[selector]',
+                cloudiqConsumerNumber: '[selector]',
+                cloudiqConsumerCountyState: '[selector]',
             }
         }
     },
@@ -133,17 +138,17 @@ export const tag_data = {
         status: 'disabled',
         inputs: {
             match: {
-                page_match: '/checkout',
-                page_exclude: '/onepagecheckout/gateway'
+                page_match: '/URL',
+                page_exclude: '/URL'
             },
-            click: '#shipping-submit',
+            click: '[selector]',
             fields: {
-                cloudiqConsumerEmail: '#delivery-email',
-                cloudiqConsumerFirstName: '#firstname',
-                cloudiqConsumerLastName: '#lastname',
-                cloudiqConsumerCountyState: '[name=province]',
-                cloudiqConsumerNumber: '#phone-number',
-                cloudiqConsumerZipCode: '#postal-code'
+                cloudiqConsumerEmail: '[selector]',
+                cloudiqConsumerFirstName: '[selector]',
+                cloudiqConsumerLastName: '[selector]',
+                cloudiqConsumerCountyState: '[selector]',
+                cloudiqConsumerNumber: '[selector]',
+                cloudiqConsumerZipCode: '[selector]'
             },
         }
     },
@@ -152,21 +157,21 @@ export const tag_data = {
         status: 'disabled',
         inputs: {
             match: {
-                page_match: '/checkout/onepage',
-                element_match: '#checkout-review-load'
+                page_match: '/URL',
+                element_match: '[selector]'
             },
-            cloudiqBasketTotal: '#checkout-review-load strong .price',
+            cloudiqBasketTotal: '[selector]',
         }
     },
     10: {
         name: 'ConfirmationPage',
-        status: 'enabled',
+        status: 'disabled',
         inputs: {
             match: {
-                page_match: '/checkout/onepage/success',
+                page_match: '/URL/success',
             },
-            cloudiqOrderNumber: 'p:nth-child(4)',
-            cloudiqBasketTotal: '#checkout-review-load strong .price',
+            cloudiqOrderNumber: '[selector]',
+            cloudiqBasketTotal: '[selector]',
         }
     },
     11: {
@@ -174,13 +179,13 @@ export const tag_data = {
         status: 'disabled',
         inputs: {
             match: {
-                page_match: '/updatepersonalinfo',
-                element_match: '#login',
+                page_match: '/URL',
+                element_match: '[selector]',
             },
             fields: {
-                cloudiqConsumerEmail: '#login',
-                cloudiqConsumerFirstName: '#firstName',
-                cloudiqConsumerLastName: '#lastName',
+                cloudiqConsumerEmail: '[selector]',
+                cloudiqConsumerFirstName: '[selector]',
+                cloudiqConsumerLastName: '[selector]',
             },
         }
     },
