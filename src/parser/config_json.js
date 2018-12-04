@@ -17,6 +17,7 @@ const configJson = (pages) => {
 		tag_data[app_id] = {};
 		tag_data[app_id]['base_campaign_id'] = tag_data_object.base_campaign_id;
 		tag_data[app_id]['email_campaign_id'] = tag_data_object.email_campaign_id;
+		if(tag_data_object.baseAppId) tag_data[app_id]['baseAppId'] = tag_data_object.baseAppId;
 		tag_data[app_id]['basket_timeout'] = '1800';
 		tag_data['pixel_src'] = tag_data_object.pixel_src;
 		tag_data['domain'] = tag_data_object.domain;

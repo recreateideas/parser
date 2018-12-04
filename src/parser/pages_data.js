@@ -2,6 +2,7 @@ export const tag_data = {
     app_id: "2091",
     base_campaign_id: "769",
     email_campaign_id: "771",
+    baseAppId: "10124",
     basket_timeout: "1800",
     pixel_src: "//platform.cloud-iq.com.au/cartrecovery/",
     domain: "www.ecostore.com.au/",
