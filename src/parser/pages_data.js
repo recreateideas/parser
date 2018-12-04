@@ -32,10 +32,10 @@ export const tag_data = {
         name: 'Login',
         status: 'disabled',
         inputs: {
-            click: '[selector]',
             match: {
                 page_match: '/URL',
             },
+            click: '[selector]',
             fields: {
                 cloudiqConsumerEmail: '[selector]'
             }
@@ -45,10 +45,10 @@ export const tag_data = {
         name: 'Register',
         status: 'disabled',
         inputs: {
-            click: '[selector]',
             match: {
                 page_match: '/URL',
             },
+            click: '[selector]',
             fields: {
                 cloudiqConsumerEmail: '[selector]',
                 cloudiqConsumerFirstName: '[selector]',

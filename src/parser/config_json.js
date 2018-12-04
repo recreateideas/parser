@@ -4,33 +4,28 @@ import * as data from './pages_data';  //<-- change here
 
 const configJson = (pages) => {
 
- console.log('called ', config);
-		const modules = config.modules,
-			clickthrough = config.clickthrough,
-			ddl_mapping = config.ddl_mapping,
-			starter = config.starter,
-			allPages = pages,
-			tag_data_object = data.tag_data,  //<-- change here
-			app_id = tag_data_object.app_id,
-			tag_data = {};
+		const {modules, clickthrough, ddl_mapping,starter} = config, {app_id} = data.tag_data;
 	
-		tag_data[app_id] = {};
-		tag_data[app_id]['base_campaign_id'] = tag_data_object.base_campaign_id;
-		tag_data[app_id]['email_campaign_id'] = tag_data_object.email_campaign_id;
-		if(tag_data_object.baseAppId) tag_data[app_id]['baseAppId'] = tag_data_object.baseAppId;
-		tag_data[app_id]['basket_timeout'] = '1800';
-		tag_data['pixel_src'] = tag_data_object.pixel_src;
-		tag_data['domain'] = tag_data_object.domain;
-		tag_data['multi_bytes'] = 'false';
-	
+		let tag_data = {
+			pixel_src: data.tag_data.pixel_src,
+			domain: data.tag_data.domain,
+			multi_bytes: data.tag_data.multi_bytes,
+			[app_id]:{
+				base_campaign_id: data.tag_data.base_campaign_id,
+				email_campaign_id: data.tag_data.email_campaign_id,
+				basket_timeout: data.tag_data.basket_timeout,
+				base_campaign_id: data.tag_data.base_campaign_id,
+			}
+		};
+		if(data.tag_data.baseAppId) tag_data[app_id]['baseAppId'] = data.tag_data.baseAppId;	
 	
 		let transmission_group = [], stringName, totalTargetLabel;
 		let targets_json = initializeJSON(modules, app_id, tag_data);
 		let targetList = targets_json.targets[app_id];
 	
 		targetList.clickthrough = JSON.stringify(clickthrough);
-		Object.keys(allPages).forEach((label) => {
-			const currentPage = allPages[label];
+		Object.keys(pages).forEach((label) => {
+			const currentPage = pages[label];
 			if (currentPage.status === 'enabled') { //if page enabled creates the page_load event by default
 				let currentInputs = currentPage.inputs, pageMatch = currentInputs.match;
 				if (currentInputs.hasOwnProperty('cloudiqBasketTotal') || currentInputs.hasOwnProperty('cloudiqBasketSubTotalTotal')) { //saves the name of the target we want to attach the total_capture to
